@@ -1,20 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 import Square from "./Square";
 
-const Board = ({ onClick }) => {
+const Board = ({ squares, onClick }) => {
   return (
-    <div>
-      <Square value="1" onClick={() => onClick("values")} />
-      <Square value="2" onClick={() => onClick("values")} />
-      <Square value="3" onClick={() => onClick("values")} />
-      <Square value="4" onClick={() => onClick("values")} />
-      <Square value="5" onClick={() => onClick("values")} />
-      <Square value="6" onClick={() => onClick("values")} />
-      <Square value="7" onClick={() => onClick("values")} />
-      <Square value="8" onClick={() => onClick("values")} />
-      <Square value="9" onClick={() => onClick("values")} />
-    </div>
+    <Container>
+      {squares.map((square, index) => (
+        <Square key={index} value={square} onClick={() => onClick(index)} />
+      ))}
+    </Container>
   );
 };
 
 export default Board;
+
+const Container = styled.div`
+  width: 320px;
+  height: 320px;
+  gap: 2px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+`;

@@ -9,4 +9,5 @@ export default Square;
 const Button = styled.button`
   cursor: pointer;
   padding: 5px;
+  font-size: 32px;
 `;
